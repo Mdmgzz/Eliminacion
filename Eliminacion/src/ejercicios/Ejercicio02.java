@@ -34,10 +34,11 @@ public class Ejercicio02 {
 		System.out.println(Arrays.toString(numeros));
 		
 		while (contador<numeros.length){
-			if (esPrimo(numeros[contador])) {
+			if (!esPrimo(numeros[contador])) {
 				contador++;
 			}else {
-				System.arraycopy(numeros, contador + 1, numeros, numeros.length, numeros.length-contador-1);
+				System.arraycopy(numeros, contador + 1, numeros, contador, numeros.length-contador-1);
+				numeros=Arrays.copyOf(numeros,numeros.length-1);
 			}
 			
 		}
